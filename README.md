@@ -4,7 +4,7 @@ Waitless är en webbapplikation som används för att generera köprognoser för
 
 ## Användning
 
-Applikationen körs med Vite. För att start webbservern, följ följande steg:
+Applikationen körs med Vite. För att starta webbservern, följ följande steg:
 
 1. Ladda ner projektet genom att clonea det eller ladda ner som zip.
 2. Starta en terminal och navigera till projektmappen just laddade ner.
