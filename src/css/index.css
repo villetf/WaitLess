@@ -1,13 +1,13 @@
 @font-face {
    font-family: 'Brown';
-   src: url('./assets/brown_normal.woff') format('woff');
+   src: url('../assets/brown_normal.woff') format('woff');
    font-weight: 400;
    font-style: normal;
 }
 
 @font-face {
    font-family: 'Brown';
-   src: url('./assets/brown_bold.woff') format('woff');
+   src: url('../assets/brown_bold.woff') format('woff');
    font-weight: 700;
    font-style: normal;
 }
