@@ -12,8 +12,6 @@ function Header() {
             </Link>
          </div>
          <nav className="h-20 w-full flex justify-around items-center">
-            <Link to='/businessplan'><div>Affärsplan</div></Link>
-            <Link to='/projectidea'><div>Projektidé</div></Link>
             <Link to='/about'><div>Om oss</div></Link>
          </nav>
       </header>
