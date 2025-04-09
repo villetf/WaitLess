@@ -21,9 +21,12 @@ function BurgerMenu() {
             <div className='mt-20'>
                <Link to='/' onClick={closeMenu}><h1 className='text-3xl'>WaitLess</h1></Link>
             </div>
-            <nav className="flex flex-col items-end mt-10 w-1/3 space-y-3">
+            <nav className="flex flex-col items-end mt-10 w-1/2 space-y-3">
+               <Link to='/generateDate' onClick={closeMenu}><h6>Generera ett datum</h6></Link>
+               <Link to='/stats' onClick={closeMenu}><h6>Statistik för nördar</h6></Link>
+
                <Link to='/about' onClick={closeMenu}><h6>Om WaitLess</h6></Link>
-               <Link to='/about' onClick={closeMenu}><h6>Kontakt</h6></Link>
+               <Link to='/contact' onClick={closeMenu}><h6>Kontakt</h6></Link>
             </nav>
          </div>
       </>
