@@ -1,0 +1,12 @@
+[
+   {
+      "id": 1,
+      "name": "Liseberg",
+      "logo": "/liseberg.png"
+   },
+   {
+      "id": 2,
+      "name": "Gröna Lund",
+      "logo": "/gronalund.png"
+   }
+]
