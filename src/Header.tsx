@@ -1,12 +1,14 @@
 import {
    Link,
 } from 'react-router-dom';
+import ParkMenu from './ParkMenu';
 
 
 function Header() {
    return (
       <header className="w-full bg-[#8DC689] flex font-bold">
-         <div className="w-50 flex justify-center items-center">
+         <div className="h-20 w-full flex justify-between items-center">
+            <ParkMenu />
             <Link to="/">
                <h1 className='text-2xl'>WaitLess</h1>
             </Link>
