@@ -11,4 +11,4 @@
 | 12 | Via en av komponenterna ska användaren kunna spara information i LocalStorage. | Ja | När man väljer en park sparas denna till LS.
 | 13 | Informationen i LocalStorage används vid renderingen av React-trädet. | Ja | Statet chosenPark i ParkMenu hämtas från localStorage, vilket sätter vilken park som är vald.
 | 14 | I app används egen css, eller ett bibliotek för att ge dina komponenter stil och form | Ja | Tailwind används för styling.
-| 15 | I app används egen css för att ge dina komponenter rörelser | Nej |
+| 15 | I app används egen css för att ge dina komponenter rörelser | Ja | Håller man över "Generera ett datum"-knappen så snurrar den, vilket specificeras i App.css.
