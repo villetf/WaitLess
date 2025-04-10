@@ -24,6 +24,6 @@ Utöver dessa branchar skapas även en kopia på main-branchen inför varje inl�
 
 ## Länkar
 
-Testmiljön finns tillgänglig [här](https://waitless-prod-xlyum.ondigitalocean.app/).
+Produktionsmiljö finns tillgänglig [här](https://waitless-prod-xlyum.ondigitalocean.app/).
 
-Produktionsmiljön finns tillgänglig [här](https://waitless-test-p9542.ondigitalocean.app/).
+Testmiljön finns tillgänglig [här](https://waitless-test-p9542.ondigitalocean.app/).
