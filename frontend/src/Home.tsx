@@ -1,5 +1,5 @@
 function Home() {
-   const imageLink = 'https://mtek3d.com/wp-content/uploads/2018/01/image-placeholder-500x500-300x300.jpg';
+   const imageLink = 'https://firstbenefits.org/wp-content/uploads/2017/10/placeholder.png';
 
    return (
       <>
