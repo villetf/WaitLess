@@ -1,0 +1,23 @@
+name: Deploy and Restart Test-Service
+
+on:
+  push:
+    branches:
+      - dev  # selected branch
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Move project to target directory
+        run: |
+          TARGET_DIR="/home/kejjrod/waitless/test"
+          cp -r ./* "$TARGET_DIR"
+
+      - name: Restart waitless-test.service
+        run: |
+          sudo systemctl restart waitless-test.service
