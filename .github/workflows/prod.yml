@@ -18,6 +18,6 @@ jobs:
           TARGET_DIR="/home/kejjrod/waitless/prod"
           cp -r ./* "$TARGET_DIR"
 
-      - name: Restart example.service
+      - name: Restart waitless-prod.service
         run: |
           sudo systemctl restart waitless-prod.service
