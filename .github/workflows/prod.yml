@@ -23,4 +23,4 @@ jobs:
 
       - name: Restart waitless-prod.service
         run: |
-          sudo systemctl restart waitless-prod.service
+          systemctl restart waitless-prod.service
