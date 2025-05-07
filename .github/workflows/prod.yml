@@ -18,9 +18,9 @@ jobs:
 
       - name: Move project to target directory
         run: |
-          TARGET_DIR="/home/kejjrod/waitless/prod"
+          TARGET_DIR="/home/waitless-user/waitless/prod"
           cp -r ./publish/ "$TARGET_DIR"
 
       - name: Restart waitless-prod.service
         run: |
-          sudo systemctl restart waitless-prod.service
+          systemctl restart waitless-prod.service
