@@ -23,4 +23,4 @@ jobs:
 
       - name: Restart waitless-test.service
         run: |
-          sudo systemctl restart waitless-test.service
+          systemctl restart waitless-test.service
