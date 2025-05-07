@@ -18,7 +18,7 @@ jobs:
 
       - name: Move project to target directory
         run: |
-          TARGET_DIR="/home/kejjrod/waitless/test"
+          TARGET_DIR="/home/waitless-user/waitless/prod"
           cp -r ./publish/ "$TARGET_DIR"
 
       - name: Restart waitless-test.service
