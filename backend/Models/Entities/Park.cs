@@ -4,8 +4,9 @@ namespace backend.Models.Entities;
 
 public class Park
 {
-   public int Id { get; set; }
-   public string Name { get; set; } = string.Empty;
-   public string Location { get; set; } = string.Empty;
-   public string LogoUrl { get; set; } = string.Empty;
+   public required string Id { get; set; }
+   public required string Name { get; set; }
+   public string? City { get; set; }
+   public string? Country { get; set; }
+   public string? LogoUrl { get; set; }
 }
