@@ -44,5 +44,33 @@ namespace backend.Controllers
 
          return Ok(returnList);
       }
+
+      [HttpGet("{id}")]
+      public async Task<IActionResult> GetAttractionById(int id, string park)
+      {
+         var attraction = await _attractionRepository.GetAttractionByIdAsync(id, park);
+         if (attraction == null)
+         {
+            return NotFound();
+         }
+
+         var attractionDTO = new ReturnAttractionDTO
+         {
+            Id = attraction.AId,
+            Name = attraction.Name,
+            BuildYear = attraction.BuildYear,
+            Manufacturer = attraction.Manufacturer,
+            ChildAttraction = attraction.ChildAttraction,
+            Status = attraction.Status,
+            Height = attraction.Height,
+            RailLength = attraction.RailLength,
+            RideTime = attraction.RideTime,
+            MaxSpeed = attraction.MaxSpeed,
+            Latitude = attraction.Latitude,
+            Longitude = attraction.Longitude
+         };
+
+         return Ok(attractionDTO);
+      }
    }
 }
