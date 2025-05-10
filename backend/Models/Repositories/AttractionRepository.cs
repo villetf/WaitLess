@@ -8,27 +8,18 @@ public class AttractionRepository : IAttractionRepository
 {
    private readonly LisebergContext _lisebergContext;
    private readonly GronalundContext _gronalundContext;
+   private readonly IParkRepository _parkRepository;
 
-   public AttractionRepository(LisebergContext lisebergContext, GronalundContext gronalundContext)
+   public AttractionRepository(LisebergContext lisebergContext, GronalundContext gronalundContext, IParkRepository parkRepository)
    {
       _lisebergContext = lisebergContext;
       _gronalundContext = gronalundContext;
+      _parkRepository = parkRepository;
    }
    
    public async Task<IEnumerable<Attraction>> GetAllAttractionsAsync(string park, bool includeDiscontinued)
    {
-      IParkInterface currentContext;
-      switch (park)
-      {
-         case "liseberg":
-            currentContext = _lisebergContext;
-            break;
-         case "gronalund":
-            currentContext = _gronalundContext;
-            break;
-         default:
-            throw new ArgumentException("Ogiltigt parknamn");
-      }
+      IParkInterface currentContext = _parkRepository.GetParkContextAsync(park); 
 
       if (includeDiscontinued == true)
       {
@@ -41,6 +32,8 @@ public class AttractionRepository : IAttractionRepository
 
    public Task<Attraction?> GetAttractionByIdAsync(int id, string park)
    {
-      throw new NotImplementedException();
+      IParkInterface currentContext = _parkRepository.GetParkContextAsync(park);
+
+      return currentContext.Attractions.FirstOrDefaultAsync(a => a.AId == id);
    }
 }
