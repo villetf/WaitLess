@@ -7,6 +7,5 @@ public interface IParkRepository
 {
    IParkInterface GetParkContextAsync(string park);
    Task<IEnumerable<Park>> GetAllParksAsync();
-   Task<Park?> GetParkByIdAsync(int id);
-   Task<Park?> GetParkByNameAsync(string name);
+   Task<Park> GetParkByIdAsync(string id);
 }
