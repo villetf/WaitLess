@@ -43,13 +43,8 @@ public class ParkRepository : IParkRepository
       return Task.FromResult(_parks.AsEnumerable());
    }
 
-   public Task<Park?> GetParkByIdAsync(int id)
+   public Task<Park> GetParkByIdAsync(string id)
    {
-      throw new NotImplementedException();
-   }
-
-   public Task<Park?> GetParkByNameAsync(string name)
-   {
-      throw new NotImplementedException();
+      return Task.FromResult(_parks.First(p => p.Id == id));
    }
 }

@@ -22,5 +22,17 @@ namespace backend.Controllers
 
          return Ok(parks);
       }
+
+      [HttpGet("{park}")]
+      public async Task<IActionResult> GetPark(string park)
+      {
+         var parkInfo = await _parkRepository.GetParkByIdAsync(park);
+         if (parkInfo == null)
+         {
+            return NotFound();
+         }
+
+         return Ok(parkInfo);
+      }
    }
 }
