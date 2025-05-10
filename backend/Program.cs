@@ -1,4 +1,6 @@
 using backend.Models;
+using backend.Models.Interfaces;
+using backend.Models.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddScoped<IAttractionRepository, AttractionRepository>();
+builder.Services.AddScoped<IParkRepository, ParkRepository>();
+builder.Services.AddScoped<IQueueForecastRepository, QueueForecastRepository>();
+
 var gronalundConnectionString = builder.Configuration.GetConnectionString("gronalunddb");
 var lisebergConnectionString = builder.Configuration.GetConnectionString("lisebergdb");
-
 
 builder.Services.AddDbContext<GronalundContext>(options => 
 {
