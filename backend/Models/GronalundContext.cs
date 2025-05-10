@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using backend.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
 namespace backend.Models;
 
-public partial class GronalundContext : DbContext
+public partial class GronalundContext : DbContext, IParkInterface
 {
    public GronalundContext()
    {

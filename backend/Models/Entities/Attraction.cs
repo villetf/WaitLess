@@ -21,7 +21,7 @@ public partial class Attraction
 
    public int? MaxSpeed { get; set; }
 
-   public bool? ChildAttraction { get; set; }
+   public bool ChildAttraction { get; set; }
 
    public string? Status { get; set; }
 

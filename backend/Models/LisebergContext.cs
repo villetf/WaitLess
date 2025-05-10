@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using backend.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Models;
 
-public partial class LisebergContext : DbContext
+public partial class LisebergContext : DbContext, IParkInterface
 {
    public LisebergContext()
    {
