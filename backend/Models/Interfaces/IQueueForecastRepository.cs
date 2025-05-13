@@ -5,5 +5,5 @@ namespace backend.Models.Interfaces;
 
 public interface IQueueForecastRepository
 {
-   Task<QueueForecast> GenerateQueueForecastAsync(int parkId, IEnumerable<Attraction> attractionId, DateTime date);
+   Task<QueueForecast> GenerateQueueForecastAsync(string park, IEnumerable<Attraction> attractions, DateTime startDate, DateTime endDate);
 }

@@ -5,7 +5,7 @@ namespace backend.Models.Interfaces;
 
 public interface IParkRepository
 {
-   IParkInterface GetParkContextAsync(string park);
+   IParkInterface GetParkContext(string park);
    Task<IEnumerable<Park>> GetAllParksAsync();
    Task<Park> GetParkByIdAsync(string id);
 }
