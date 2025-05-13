@@ -22,7 +22,7 @@ public class ParkRepository : IParkRepository
       _parks = JsonSerializer.Deserialize<List<Park>>(json) ?? new List<Park>();
    }
 
-   public IParkInterface GetParkContextAsync(string park)
+   public IParkInterface GetParkContext(string park)
    {
       IParkInterface currentContext;
       switch (park)

@@ -19,7 +19,7 @@ public class AttractionRepository : IAttractionRepository
    
    public async Task<IEnumerable<Attraction>> GetAllAttractionsAsync(string park, bool includeDiscontinued)
    {
-      IParkInterface currentContext = _parkRepository.GetParkContextAsync(park); 
+      IParkInterface currentContext = _parkRepository.GetParkContext(park); 
 
       if (includeDiscontinued == true)
       {
@@ -32,7 +32,7 @@ public class AttractionRepository : IAttractionRepository
 
    public Task<Attraction?> GetAttractionByIdAsync(int id, string park)
    {
-      IParkInterface currentContext = _parkRepository.GetParkContextAsync(park);
+      IParkInterface currentContext = _parkRepository.GetParkContext(park);
 
       return currentContext.Attractions.FirstOrDefaultAsync(a => a.AId == id);
    }
