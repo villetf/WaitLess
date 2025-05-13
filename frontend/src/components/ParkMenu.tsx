@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Park } from './types';
+import { Park } from '../types';
 
 function ParkMenu() {
    const [chosenPark, setChosenPark] = useState(localStorage.getItem('chosenPark'));
