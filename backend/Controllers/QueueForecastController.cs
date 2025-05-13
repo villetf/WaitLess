@@ -38,5 +38,12 @@ namespace backend.Controllers
 
          return Ok(forecast);
       }
+
+      [HttpPost("metricsToSearch")]
+      public async Task<IActionResult> GetMetricsToSearch([FromBody] ForecastRequestDTO forecastRequest)
+      {
+         var metrics = await _queueForecastRepository.GetMetricsToSearchAsync(forecastRequest);
+         return Ok(metrics);
+      }
    }
 }

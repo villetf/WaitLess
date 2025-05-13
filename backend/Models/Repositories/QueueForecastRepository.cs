@@ -1,4 +1,5 @@
 using System;
+using backend.Models.DTOs;
 using backend.Models.Entities;
 using backend.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -7,14 +8,10 @@ namespace backend.Models.Repositories;
 
 public class QueueForecastRepository : IQueueForecastRepository
 {
-   private readonly GronalundContext _gronalundContext;
-   private readonly LisebergContext _lisebergContext;
    private readonly IParkRepository _parkRepository;
 
-   public QueueForecastRepository(GronalundContext gronalundContext, LisebergContext lisebergContext, IParkRepository parkRepository)
+   public QueueForecastRepository(IParkRepository parkRepository)
    {
-      _gronalundContext = gronalundContext;
-      _lisebergContext = lisebergContext;
       _parkRepository = parkRepository;
    }
 
@@ -69,6 +66,24 @@ public class QueueForecastRepository : IQueueForecastRepository
             .OrderBy(m => m.Average)
             .ToList()
       });
+   }
+
+   public Task<int> GetMetricsToSearchAsync(ForecastRequestDTO forecastRequest)
+   {
+      var context = _parkRepository.GetParkContext(forecastRequest.Park);
+      var startDateLastYear = GetDateOneYearAgo(forecastRequest.StartDate);
+      var endDateLastYear = GetDateOneYearAgo(forecastRequest.EndDate);
+
+      var metricsCount = context.AttractionMetrics
+            .Where(m =>
+               forecastRequest.AttractionIds.Contains(m.AId) &&
+               m.Time >= startDateLastYear && 
+               m.Time < endDateLastYear &&
+               m.QueueTime != 0
+            )
+            .Count();
+
+      return Task.FromResult(metricsCount);
    }
 
    private static DateTime GetDateOneYearAgo(DateTime inputDate)
