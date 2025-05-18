@@ -60,7 +60,7 @@ export default tseslint.config(
          'implicit-arrow-linebreak': 'error',
          'key-spacing': 'error',
          'keyword-spacing': 'error',
-         'max-len': ['error', {'code': 150, 'ignoreComments': true, 'ignoreUrls': true, 'ignoreStrings': true, 'ignoreTemplateLiterals': true}],
+         'max-len': ['error', {'code': 250, 'ignoreComments': true, 'ignoreUrls': true, 'ignoreStrings': true, 'ignoreTemplateLiterals': true}],
          'no-multi-spaces': 'error',
          'no-whitespace-before-property': 'error',
          'semi-spacing': 'error',

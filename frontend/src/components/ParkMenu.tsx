@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Park } from './types';
+import { Park } from '../types';
+import { apiUrl } from '../config';
 
 function ParkMenu() {
    const [chosenPark, setChosenPark] = useState(localStorage.getItem('chosenPark'));
@@ -10,7 +11,7 @@ function ParkMenu() {
    // Hämtar alla parkloggor vid första rendering
    useEffect(() => {
       const getAllLogos = async() => {
-         const res = await fetch('/parkLogos.json');
+         const res = await fetch(`${apiUrl}/api/v1/parks/`);
          parks.current = await res.json();
          setParkLogo();
       };
@@ -20,8 +21,8 @@ function ParkMenu() {
 
    // Hitta den nuvarande parken i listan med alla, sätt loggan som den nuvarande
    const setParkLogo = useCallback(() => {
-      const match = parks.current.find((set) => set.name === chosenPark);
-      setLogoLink(match ? match.logo : '');
+      const match = parks.current.find((set) => set.id === chosenPark);
+      setLogoLink(match ? match.logoUrl : '');
    }, [chosenPark]);
 
    const setParkToLs = useCallback((park: string | null) => park && localStorage.setItem('chosenPark', park), []);
@@ -49,8 +50,8 @@ function ParkMenu() {
             {parks.current
                .filter(park => park.name !== chosenPark)
                .map(park => (
-                  <div className='size-auto p-3 h-15 hover:bg-[#bbe6b8]' onClick={() => setChosenPark(park.name)}>
-                     <img src={park.logo} alt={park.name} className='pr-2 h-7'/>
+                  <div className='size-auto p-3 h-15 hover:bg-[#bbe6b8]' onClick={() => setChosenPark(park.id)}>
+                     <img src={park.logoUrl} alt={park.name} className='pr-2 h-7'/>
                   </div>
                ))}
          </div>}
