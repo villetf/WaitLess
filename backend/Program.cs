@@ -30,7 +30,18 @@ builder.Services.AddDbContext<LisebergContext>(options =>
    ServerVersion.AutoDetect(lisebergConnectionString));
 });
 
+builder.Services.AddCors(opt => {
+   opt.AddDefaultPolicy(policy => 
+   {
+      policy.AllowAnyHeader();
+      policy.AllowAnyMethod();
+      policy.AllowAnyOrigin();
+   });
+});
+
 var app = builder.Build();
+
+app.UseCors();
 
 app.MapGet("/test", (LisebergContext ldb, GronalundContext gdb) =>
 {

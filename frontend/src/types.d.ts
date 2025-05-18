@@ -1,6 +1,9 @@
 export interface Park {
+   id: string,
    name: string,
-   logo: string
+   city: string,
+   country: string,
+   logoUrl: string
 }
 
 export interface Attraction {
@@ -16,4 +19,13 @@ export interface Attraction {
    status: string,
    latitude: number,
    longitude: number,
+}
+
+export interface Forecast {
+   days: ForecastDay[]
+}
+
+export interface ForecastDay {
+   date: Date,
+   average: number
 }
