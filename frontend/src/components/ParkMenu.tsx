@@ -35,18 +35,18 @@ function ParkMenu() {
 
 
    return (
-      <div className='ml-10 flex cursor-pointer items-center relative w-70' onClick={() => setMenuIsOpen(!menuIsOpen)}>
+      <div className='ml-10 flex cursor-pointer items-center relative w-80' onClick={() => setMenuIsOpen(!menuIsOpen)}>
 
          {chosenPark ?
             <>
-               <p>Vald park:</p>
+               <p>Vald nöjespark:</p>
                <i className="fa-solid fa-sort-down ml-5 text-lg flex items-center mb-2" />
                <img src={logoLink} alt={`Logga för ${chosenPark}`} className='h-7 ml-2'/>
             </> :
             <p>Välj en park</p>
          }
 
-         {menuIsOpen && <div className='absolute w-40 left-27 top-13.5 bg-[#8DC689]'>
+         {menuIsOpen && <div className='absolute w-40 left-35 top-13.5 bg-[#8DC689]'>
             {parks.current
                .filter(park => park.name !== chosenPark)
                .map(park => (
