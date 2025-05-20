@@ -43,12 +43,6 @@ var app = builder.Build();
 
 app.UseCors();
 
-app.MapGet("/test", (LisebergContext ldb, GronalundContext gdb) =>
-{
-   var count = ldb.Attractions.Count();
-   return $"Antal attraktioner, Liseberg: {count}, Antal attraktioner, Gröna Lund: {gdb.Attractions.Count()}";
-});
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
