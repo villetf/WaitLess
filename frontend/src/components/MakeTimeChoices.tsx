@@ -93,7 +93,7 @@ function MakeTimeChoices(props: {
    return (
       <div className='flex flex-col items-center w-full'>
          <Toaster />
-         {!props.chosenPark && <div className='text-lg py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en i menyn längst upp till vänster.</div>}
+         {!props.chosenPark && <div className='text-lg py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i menyn längst upp till vänster.</div>}
          <div className='flex flex-col items-center w-full' style={!props.chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
             <h1 className='mt-20 text-3xl mb-5'>När vill du åka?</h1>
             <h4>För bästa resultat, välj ett stort tidsspann så att det finns många datum att välja mellan.</h4>
