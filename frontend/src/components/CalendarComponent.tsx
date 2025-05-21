@@ -14,6 +14,11 @@ function CalendarComponent(props: { chosenDates: [Date, Date] | Date | undefined
          value={props.chosenDates}
          next2Label={null}
          prev2Label={null}
+         tileClassName={({ date, view }) => {
+            if (view === 'month' && date.getDay() === 0) {
+               return 'only-sunday';
+            }
+         }}
       />
    );
 }
