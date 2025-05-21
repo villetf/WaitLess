@@ -53,3 +53,11 @@
 abbr:where([title]) {
    text-decoration-line: none !important;
 }
+
+.react-calendar__month-view__days__day--weekend {
+   color: inherit;
+}
+
+.only-sunday {
+   color: rgb(209, 0, 0);
+}
