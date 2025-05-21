@@ -1,4 +1,5 @@
 import Calendar from 'react-calendar';
+import '../css/calendar.css';
 
 function CalendarComponent(props: { chosenDates: [Date, Date] | Date | undefined, setChosenDates?: (dates: [Date, Date]) => void }) {
    const maxDate = new Date();
@@ -11,6 +12,8 @@ function CalendarComponent(props: { chosenDates: [Date, Date] | Date | undefined
          onChange={(date) => props.setChosenDates!(date as [Date, Date])}
          selectRange
          value={props.chosenDates}
+         next2Label={null}
+         prev2Label={null}
       />
    );
 }
