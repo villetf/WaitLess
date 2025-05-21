@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
 function Home() {
-   const imageLink = 'https://firstbenefits.org/wp-content/uploads/2017/10/placeholder.png';
+   const imageLink = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Helix%2C_Liseberg_2014-04-26_03.jpg';
 
    return (
       <>
          <div className="h-full w-1/2 flex justify-center items-center">
-            <img src={imageLink} alt="placeholder" className="h-100" />
+            <img src={imageLink} alt="placeholder" className="h-120" />
          </div>
 
          <div className="h-full w-1/2 flex justify-center flex-col">
