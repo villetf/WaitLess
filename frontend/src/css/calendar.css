@@ -1,0 +1,63 @@
+.react-calendar {
+   background-color: #F5F7E8;
+   width: 400px;
+}
+
+.react-calendar__tile {
+   background-color: #d0ebc0;
+   height: 57px;
+   width: 500px;
+   flex: 0 0 12.285714% !important; 
+   margin: 1% !important;
+}
+
+
+.react-calendar__tile:enabled:hover {
+   background-color: #71b35d;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+   background-color: #E9F1DD;
+}
+
+
+.react-calendar__month-view__weekdays {
+   margin-right: 10px;
+   margin-left: 10px;
+}
+
+
+.react-calendar__month-view__days {
+   margin: 10px;
+}
+
+
+.react-calendar {
+   border: none;
+   width: auto;
+}
+
+.react-calendar__month-view {
+   width: 500px;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover, .react-calendar__tile--active {
+   background-color: #74b062;
+   color: black;
+}
+
+.react-calendar__tile--now {
+   background-color: yellow;
+}
+
+abbr:where([title]) {
+   text-decoration-line: none !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+   color: inherit;
+}
+
+.only-sunday {
+   color: rgb(209, 0, 0);
+}

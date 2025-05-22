@@ -1,0 +1,16 @@
+[
+   {
+      "Id": "liseberg",
+      "Name": "Liseberg",
+      "City": "Göteborg",
+      "Country": "Sverige",
+      "LogoUrl": "/liseberg.png"
+   },
+   {
+      "Id": "gronalund",
+      "Name": "Gröna Lund",
+      "City": "Stockholm",
+      "Country": "Sverige",
+      "LogoUrl": "/gronalund.png"
+   }
+]
