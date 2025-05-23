@@ -19,6 +19,7 @@ function CalendarComponent(props: { chosenDates: [Date, Date] | Date | undefined
                return 'only-sunday';
             }
          }}
+         minDetail='month'
       />
    );
 }
