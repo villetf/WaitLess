@@ -63,7 +63,8 @@ Precis som i frontend finns både ett test-API och ett prod-API, som ska spegla 
 
 ## API-dokumentation
 
-En Swagger-instans går att nå i den publika testmiljön: https://waitless-test.kejjrod.com/swagger/index.html
+En Swagger-instans går att nå i den publika testmiljön: https://waitless-test.kejjrod.com/swagger/index.html.
+
 Notera att de Post-endpoints som finns inte skriver något utan hämtar data baserat på de krav som anges i bodyn. Anledningen till detta är att det inte är rekommenderat att skicka en body i ett Get-anrop. Man kan dock resonera att den ändå skapar något eftersom endpointen används för att generera en unik prognos.
 
 ## Branching-strategi
