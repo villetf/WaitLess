@@ -6,7 +6,7 @@ import ForecastPresentation from '../components/ForecastPresentation';
 import { useLocation } from 'react-router-dom';
 
 
-function GenerateTime(props: {chosenPark: string | null}) {
+function GenerateTime() {
    const [currentStep, setCurrentStep] = useState(1);
    const [valuesSearched, setValuesSearched] = useState(0);
    const [forecast, setForecast] = useState<Forecast>();
@@ -27,7 +27,6 @@ function GenerateTime(props: {chosenPark: string | null}) {
             setForecast={setForecast}
             selectedDates={selectedDates}
             setSelectedDates={setSelectedDates}
-            chosenPark={props.chosenPark}
          />
       ) : currentStep === 2 ? (
          <LoadingScreen valuesSearched={valuesSearched} />

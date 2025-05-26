@@ -4,13 +4,13 @@ import Home from '../pages/Home';
 import GenerateTime from '../pages/GenerateTime';
 
 
-function MainContent(props: {chosenPark: string | null}) {
+function MainContent() {
    return (
       <main className="h-37/40 w-full bg-[#FFFCF1] flex">
          <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />}/>
-            <Route path='/generate' element={<GenerateTime chosenPark={props.chosenPark} />}/>
+            <Route path='/generate' element={<GenerateTime />}/>
          </Routes>
       </main>
    );
