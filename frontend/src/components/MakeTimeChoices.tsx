@@ -42,7 +42,6 @@ function MakeTimeChoices(props: {
 
    const getForecast = () => {
       let somethingIsWrong = false;
-      console.log('proppar', props.selectedDates);
       if (!props.selectedDates) {
          toast.error('Du måste välja ett datumspann.');
          somethingIsWrong = true;
