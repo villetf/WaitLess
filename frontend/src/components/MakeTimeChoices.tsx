@@ -19,7 +19,7 @@ function MakeTimeChoices(props: {
    const [chosenAttractions, setChosenAttractions] = useState<Attraction[]>([]);
    const parkContext = useContext(ParkContext);
    if (!parkContext) {
-      throw new Error('ParkMenu must be used within a ParkProvider');
+      throw new Error('MakeTimeChoices must be used within a ParkProvider');
    }
 
    const { chosenPark } = parkContext;
@@ -27,7 +27,10 @@ function MakeTimeChoices(props: {
 
    useEffect(() => {
       const getAttractions = async() => {
-         fetch(`${apiUrl}/api/v1/attractions?park=${chosenPark}`)
+         if (!chosenPark) {
+            return;
+         }
+         fetch(`${apiUrl}/api/v1/attractions?park=${chosenPark?.id}`)
             .then(res => res.json())
             .then((data) => {
                setAttractions(data);
@@ -61,7 +64,7 @@ function MakeTimeChoices(props: {
       };
 
       const body = JSON.stringify({
-         park: chosenPark,
+         park: chosenPark?.id,
          attractionIds: chosenAttractions.map((attraction) => attraction.id),
          startDate: props.selectedDates![0],
          endDate: props.selectedDates![1]
