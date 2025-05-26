@@ -5,12 +5,12 @@ import BurgerMenu from './BurgerMenu';
 import ParkMenu from './ParkMenu';
 
 
-function Header(props: {chosenPark: string | null, setChosenPark: (park: string) => void}) {
+function Header() {
    return (
       <header className="w-full bg-[#8DC689] flex font-bold">
          <div className="h-23 w-full grid grid-cols-[1fr_auto_1fr] items-center">
             <div className='justify-self-start'>
-               <ParkMenu chosenPark={props.chosenPark} setChosenPark={props.setChosenPark}/>
+               <ParkMenu />
             </div>
             <div className='justify-self-center'>
                <Link to="/">
