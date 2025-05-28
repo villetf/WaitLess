@@ -12,6 +12,26 @@ Applikationen bygger på historisk data från 2023 och framåt, insamlad från n
 - **Backend**: Byggd i ASP.NET.
 - Båda finns i detta repo under mapparna `frontend` respektive `backend`.
 
+## Återanvändbar React-komponent
+
+React-komponenten BurgerMenu är en återanvändbar komponent, vilket innebär att den utan modifiering kan användas i ett annat projekt. Den består av en hamburgermeny (tre horisontella streck ovanpå varandra), som vid klick fäller ut en meny på sidans högra kant samtidigt som resten av sidan tonas ned. Tanken är att menyn fylls med länkar och andra resurser. Vid klick på en länk i menyn (`<a>` eller `<Link>`) stängs menyn automatiskt.
+
+Menyn används genom att man placerar BurgerMenu-komponenten där man vill ha menyknappen. Innehållet man vill ha i menyn innanför BurgerMenu-taggarna. Propen backgroundColor används för att ange menyns bakgrundsfärg i hexadecimal form (inklusive nummertecken(#)), men är valfri.
+
+```jsx
+<BurgerMenu backgroundColor='#4fc8b0'>
+   <div className='mt-20'>
+      <Link to='/'><h1 className='text-3xl'>WaitLess</h1></Link>
+   </div>
+   <nav className="flex flex-col items-center mt-10 w-1/2 space-y-3">
+      <Link to='/generate'><h6>Generera ett datum</h6></Link>
+      <Link to='/stats'><h6>Statistik för nördar</h6></Link>
+
+      <Link to='/about'><h6>Om WaitLess</h6></Link>
+      <Link to='/contact'><h6>Kontakt</h6></Link>
+   </nav>
+</BurgerMenu>
+```
 
 ## Körning i utvecklingsmiljö
 
