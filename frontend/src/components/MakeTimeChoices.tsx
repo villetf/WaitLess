@@ -12,11 +12,16 @@ function MakeTimeChoices(props: {
       setForecast: (forecast: Forecast) => void
       selectedDates?: [Date, Date],
       setSelectedDates?: (dates: [Date, Date]) => void,
+      setError: (error: Error) => void
 }) {
    const apiUrl = import.meta.env.VITE_API_URL;
    const [attractions, setAttractions] = useState<Attraction[]>([]);
    const [childAttractionsHidden, setChildAttractionsHidden] = useState(false);
    const [chosenAttractions, setChosenAttractions] = useState<Attraction[]>([]);
+
+   const setError = props.setError;
+
+
    const parkContext = useContext(ParkContext);
    if (!parkContext) {
       throw new Error('MakeTimeChoices must be used within a ParkProvider');
@@ -34,11 +39,14 @@ function MakeTimeChoices(props: {
             .then(res => res.json())
             .then((data) => {
                setAttractions(data);
+            })
+            .catch(() => {
+               setError(new Error('Attraktioner kunde inte hämtas.'));
             });
       };
 
       getAttractions();
-   }, [apiUrl, chosenPark]);
+   }, [apiUrl, chosenPark, setError]);
 
    const getForecast = () => {
       let somethingIsWrong = false;
@@ -95,6 +103,9 @@ function MakeTimeChoices(props: {
 
             props.setCurrentStep(3);
             props.setForecast(forecastWithDates);
+         })
+         .catch(() => {
+            setError(new Error('Prognos kunde inte genereras.'));
          });
    };
 
