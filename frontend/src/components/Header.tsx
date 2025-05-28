@@ -18,7 +18,18 @@ function Header() {
                </Link>
             </div>
             <div className='justify-self-end'>
-               <BurgerMenu />
+               <BurgerMenu>
+                  <div className='mt-20'>
+                     <Link to='/'><h1 className='text-3xl'>WaitLess</h1></Link>
+                  </div>
+                  <nav className="flex flex-col items-center mt-10 w-1/2 space-y-3">
+                     <Link to='/generate'><h6>Generera ett datum</h6></Link>
+                     <Link to='/stats'><h6>Statistik för nördar</h6></Link>
+
+                     <Link to='/about'><h6>Om WaitLess</h6></Link>
+                     <Link to='/contact'><h6>Kontakt</h6></Link>
+                  </nav>
+               </BurgerMenu>
             </div>
          </div>
 
