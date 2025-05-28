@@ -5,6 +5,7 @@ import SelectAttractionsList from './SelectAttractionsList';
 import Button from './Button';
 import toast, { Toaster } from 'react-hot-toast';
 import { ParkContext } from './ParkContext';
+import { fetchAttractions, fetchMetricsToSearch, fetchQueueForecast } from '../services/apiCalls';
 
 function MakeTimeChoices(props: {
       setCurrentStep: (step: number) => void,
@@ -14,7 +15,7 @@ function MakeTimeChoices(props: {
       setSelectedDates?: (dates: [Date, Date]) => void,
       setError: (error: Error) => void
 }) {
-   const apiUrl = import.meta.env.VITE_API_URL;
+
    const [attractions, setAttractions] = useState<Attraction[]>([]);
    const [childAttractionsHidden, setChildAttractionsHidden] = useState(false);
    const [chosenAttractions, setChosenAttractions] = useState<Attraction[]>([]);
@@ -35,18 +36,15 @@ function MakeTimeChoices(props: {
          if (!chosenPark) {
             return;
          }
-         fetch(`${apiUrl}/api/v1/attractions?park=${chosenPark?.id}`)
-            .then(res => res.json())
-            .then((data) => {
-               setAttractions(data);
-            })
-            .catch(() => {
-               setError(new Error('Attraktioner kunde inte hämtas.'));
+         fetchAttractions(chosenPark.id)
+            .then(setAttractions)
+            .catch(error => {
+               setError(error);
             });
       };
 
       getAttractions();
-   }, [apiUrl, chosenPark, setError]);
+   }, [chosenPark, setError]);
 
    const getForecast = () => {
       let somethingIsWrong = false;
@@ -66,33 +64,13 @@ function MakeTimeChoices(props: {
 
       props.setCurrentStep(2);
 
-      const headers = {
-         'Content-Type': 'application/json'
-      };
 
-      const body = JSON.stringify({
-         park: chosenPark?.id,
-         attractionIds: chosenAttractions.map((attraction) => attraction.id),
-         startDate: props.selectedDates![0],
-         endDate: props.selectedDates![1]
-      });
-
-      fetch(`${apiUrl}/api/v1/queueForecast/metricsToSearch`, {
-         method: 'POST',
-         headers: headers,
-         body: body
-      })
-         .then(res => res.json())
+      fetchMetricsToSearch(chosenPark!.id, chosenAttractions, props.selectedDates![0], props.selectedDates![1])
          .then((data: number) => {
             props.setValuesSearched(data);
          });
 
-      fetch(`${apiUrl}/api/v1/queueForecast`, {
-         method: 'POST',
-         headers: headers,
-         body: body
-      })
-         .then(res => res.json())
+      fetchQueueForecast(chosenPark!.id, chosenAttractions, props.selectedDates![0], props.selectedDates![1])
          .then((data: Forecast) => {
             const forecastWithDates: Forecast = {
                days: data.days.map((day) => ({
@@ -104,8 +82,8 @@ function MakeTimeChoices(props: {
             props.setCurrentStep(3);
             props.setForecast(forecastWithDates);
          })
-         .catch(() => {
-            setError(new Error('Prognos kunde inte genereras.'));
+         .catch(error => {
+            setError(error);
          });
    };
 
