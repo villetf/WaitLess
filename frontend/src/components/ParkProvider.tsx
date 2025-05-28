@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { ParkContext } from './ParkContext';
 import { Park } from '../types';
-import { apiUrl } from '../config';
+import { fetchParks } from '../services/apiCalls';
 
 export const ParkProvider = ({ children }: { children: ReactNode }) => {
    const [chosenPark, setChosenPark] = useState<Park | null>(null);
@@ -10,8 +10,7 @@ export const ParkProvider = ({ children }: { children: ReactNode }) => {
    // Hämtar alla parkloggor vid första rendering
    useEffect(() => {
       const getAllParks = async() => {
-         const res = await fetch(`${apiUrl}/api/v1/parks/`);
-         const fetchedParks = await res.json();
+         const fetchedParks = await fetchParks();
          setAllParks(fetchedParks);
 
          const savedParkId = localStorage.getItem('chosenPark');
