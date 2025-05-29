@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Attraction, Forecast } from '../types';
 import CalendarComponent from './CalendarComponent';
 import SelectAttractionsList from './SelectAttractionsList';
 import Button from './Button';
 import toast, { Toaster } from 'react-hot-toast';
+import { ParkContext } from './ParkContext';
+import { fetchAttractions, fetchMetricsToSearch, fetchQueueForecast } from '../services/apiCalls';
 
 function MakeTimeChoices(props: {
       setCurrentStep: (step: number) => void,
@@ -11,29 +13,41 @@ function MakeTimeChoices(props: {
       setForecast: (forecast: Forecast) => void
       selectedDates?: [Date, Date],
       setSelectedDates?: (dates: [Date, Date]) => void,
-      chosenPark: string | null,
+      setError: (error: Error) => void
 }) {
-   const apiUrl = import.meta.env.VITE_API_URL;
+
    const [attractions, setAttractions] = useState<Attraction[]>([]);
    const [childAttractionsHidden, setChildAttractionsHidden] = useState(false);
    const [chosenAttractions, setChosenAttractions] = useState<Attraction[]>([]);
 
+   const setError = props.setError;
+
+
+   const parkContext = useContext(ParkContext);
+   if (!parkContext) {
+      throw new Error('MakeTimeChoices must be used within a ParkProvider');
+   }
+
+   const { chosenPark } = parkContext;
+
 
    useEffect(() => {
       const getAttractions = async() => {
-         fetch(`${apiUrl}/api/v1/attractions?park=${props.chosenPark}`)
-            .then(res => res.json())
-            .then((data) => {
-               setAttractions(data);
+         if (!chosenPark) {
+            return;
+         }
+         fetchAttractions(chosenPark.id)
+            .then(setAttractions)
+            .catch(error => {
+               setError(error);
             });
       };
 
       getAttractions();
-   }, [apiUrl, props.chosenPark]);
+   }, [chosenPark, setError]);
 
    const getForecast = () => {
       let somethingIsWrong = false;
-      console.log('proppar', props.selectedDates);
       if (!props.selectedDates) {
          toast.error('Du måste välja ett datumspann.');
          somethingIsWrong = true;
@@ -50,33 +64,13 @@ function MakeTimeChoices(props: {
 
       props.setCurrentStep(2);
 
-      const headers = {
-         'Content-Type': 'application/json'
-      };
 
-      const body = JSON.stringify({
-         park: props.chosenPark,
-         attractionIds: chosenAttractions.map((attraction) => attraction.id),
-         startDate: props.selectedDates![0],
-         endDate: props.selectedDates![1]
-      });
-
-      fetch(`${apiUrl}/api/v1/queueForecast/metricsToSearch`, {
-         method: 'POST',
-         headers: headers,
-         body: body
-      })
-         .then(res => res.json())
+      fetchMetricsToSearch(chosenPark!.id, chosenAttractions, props.selectedDates![0], props.selectedDates![1])
          .then((data: number) => {
             props.setValuesSearched(data);
          });
 
-      fetch(`${apiUrl}/api/v1/queueForecast`, {
-         method: 'POST',
-         headers: headers,
-         body: body
-      })
-         .then(res => res.json())
+      fetchQueueForecast(chosenPark!.id, chosenAttractions, props.selectedDates![0], props.selectedDates![1])
          .then((data: Forecast) => {
             const forecastWithDates: Forecast = {
                days: data.days.map((day) => ({
@@ -87,14 +81,17 @@ function MakeTimeChoices(props: {
 
             props.setCurrentStep(3);
             props.setForecast(forecastWithDates);
+         })
+         .catch(error => {
+            setError(error);
          });
    };
 
    return (
       <div className='flex flex-col items-center w-full'>
          <Toaster />
-         {!props.chosenPark && <div className='text-lg py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i menyn längst upp till vänster.</div>}
-         <div className='flex flex-col items-center w-full' style={!props.chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
+         {!chosenPark && <div className='text-lg py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i menyn längst upp till vänster.</div>}
+         <div className='flex flex-col items-center w-full' style={!chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
             <h1 className='mt-20 text-3xl mb-5'>När vill du åka?</h1>
             <h4>För bästa resultat, välj ett stort tidsspann så att det finns många datum att välja mellan.</h4>
             <div className='mt-10'>
