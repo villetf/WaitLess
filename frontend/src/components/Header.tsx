@@ -18,7 +18,7 @@ function Header() {
                </Link>
             </div>
             <div className='justify-self-end'>
-               <BurgerMenu>
+               {/* <BurgerMenu>
                   <div className='mt-20'>
                      <Link to='/'><h1 className='text-3xl'>WaitLess</h1></Link>
                   </div>
@@ -29,7 +29,7 @@ function Header() {
                      <Link to='/about'><h6>Om WaitLess</h6></Link>
                      <Link to='/contact'><h6>Kontakt</h6></Link>
                   </nav>
-               </BurgerMenu>
+               </BurgerMenu> */}
             </div>
          </div>
 
