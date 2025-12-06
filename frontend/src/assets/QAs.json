@@ -41,14 +41,6 @@
    },
    {
       "question": "Jag har hittat ett fel på WaitLess, vad gör jag?",
-      "answer": "Vi är jättetacksamma om du vill hjälpa oss att fixa det. Skriv ett mail till <a href=\"mailto:ville@fontell.se\" class=\"underline text-blue-500\">ville@fontell.se</a> där du beskriver felet och vad du gjorde för att orsaka det. Om du har ett GitHub-konto kan du också <a href=\"https://github.com/villetf/WaitLess/issues\" target=\"_blank\" class=\"underline text-blue-500\">skapa ett issue</a>. Stort tack för hjälpen!"
-   },
-   {
-      "question": "Vilka ligger bakom WaitLess?",
-      "answer": "Vi som ligger bakom WaitLess heter Vilhelm Fontell och Kevin Rodrigues. Du kan läsa mer om oss <a href=\"#aboutUs\" class=\"underline text-blue-500\">här</a>."
-   },
-   {
-      "question": "Om jag är utvecklare, kan jag bidra till WaitLess?",
-      "answer": "Ja! WaitLess är ett open source-projekt, vilket innebär att källkoden är öppen. Tekniskt är WaitLess byggt i React och ASP.NET Core. Om du vill bidra kan du skapa ett issue eller öppna en pull request i <a href=\"https://github.com/villetf/WaitLess\" target=\"_blank\" class=\"underline text-blue-500\">projektets GitHub-repo</a>."
+      "answer": "Vi är jättetacksamma om du vill hjälpa oss att fixa det. Skriv ett mail till <a href=\"mailto:ville@fontell.se\" class=\"underline text-blue-500\">ville@fontell.se</a> där du beskriver felet och vad du gjorde för att orsaka det. Vi jobbar på att få in ett formulär för att göra det enklare. Stort tack för hjälpen!"
    }
 ]

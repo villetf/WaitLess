@@ -16,7 +16,7 @@ function Contact() {
             </section>
 
             <section className='w-full flex flex-col items-center mb-20'>
-               <h2 className='text-3xl mb-10'>Bakom WaitLess:</h2>
+               <h2 className='text-3xl mb-5'>Bakom WaitLess</h2>
                <div className='bg-[#8DC689] h-70 min-w-1/2 flex items-center rounded-[40px]'>
                   <img src="./portratt.png" alt="Bild på Vilhelm" className='rounded-full border-20 border-[#FFFCF1] h-3/4 -ml-20' />
                   <div className='text-left ml-5'>
