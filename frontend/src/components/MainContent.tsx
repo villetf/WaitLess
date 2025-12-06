@@ -7,7 +7,7 @@ import ErrorBoundary from './ErrorBoundary';
 
 function MainContent() {
    return (
-      <main className="h-37/40 w-full bg-[#FFFCF1] flex">
+      <main className="w-full min-h-screen bg-[#FFFCF1] mb-40">
          <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />}/>
