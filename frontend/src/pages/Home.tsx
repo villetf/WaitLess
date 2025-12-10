@@ -6,15 +6,15 @@ function Home() {
 
    return (
       <div className="flex flex-col min-h-screen">
-         <section className='flex min-h-[92.5vh] flex-none py-8'>
-            <div className="flex-1 flex justify-center items-center">
-               <img src={imageLink} alt="placeholder" className="h-120" />
+         <section className='flex flex-col lg:flex-row min-h-[92.5vh] flex-none py-8'>
+            <div className="flex-1 flex justify-center items-center px-1 lg:px-6">
+               <img src={imageLink} alt="placeholder" className="w-full rounded-4xl mx-auto max-w-2xl" />
             </div>
 
             <div className="flex-1 flex justify-center flex-col">
-               <h1 className="text-7xl text-left mb-10 mr-10">Ha kul istället <br />för att stå i kö.</h1>
-               <h3 className="text-left text-3xl mr-20">Med hjälp av 8 miljoner mätvärden hjälper WaitLess dig att hitta dagarna med minst kö på nöjesparker.</h3>
-               <div className='text-left'>
+               <h1 className="text-5xl lg:text-7xl lg:text-left mb-10 lg:mr-10">Ha kul istället <br />för att stå i kö.</h1>
+               <h3 className="lg:text-left text-xl lg:text-3xl lg:mr-20">Med hjälp av 8 miljoner mätvärden hjälper WaitLess dig att hitta dagarna med minst kö på nöjesparker.</h3>
+               <div className='lg:text-left'>
                   <Link to='/generate'><Button text='Generera ett datum' /></Link>
                </div>
             </div>
@@ -22,15 +22,15 @@ function Home() {
 
          <section className='flex flex-col items-center'>
             <img src="/waitless_graph.png" alt="" className='w-3/4 mb-30'/>
-            <div>
-               <h1 className='text-6xl mb-10 text-left'>Så här funkar det:</h1>
-               <ol className='list-decimal text-left text-6xl'>
+            <div className='w-9/10 lg:w-fit'>
+               <h1 className='text-4xl lg:text-6xl mb-10 lg:text-left'>Så här funkar det:</h1>
+               <ol className='list-decimal list-inside lg:list-outside lg:text-left text-4xl lg:text-6xl'>
                   <li className='mb-5'>Välj datum</li>
                   <li className='mb-5'>Välj attraktioner</li>
                   <li>Få de bästa dagarna</li>
                </ol>
-               <div className='text-left'>
-                  <Link to='/generate' className='mr-3'><Button text='Testa nu'></Button></Link>
+               <div className='text-left flex flex-col lg:flex-row items-center'>
+                  <Link to='/generate' className='lg:mr-3'><Button text='Testa nu'></Button></Link>
                   <Link to="/about"><Button text='Se hur det funkar' /></Link>
                </div>
             </div>
