@@ -13,7 +13,7 @@ function Home() {
 
             <div className="flex-1 flex justify-center flex-col">
                <h1 className="text-5xl lg:text-7xl lg:text-left mb-10 lg:mr-10">Ha kul istället <br />för att stå i kö.</h1>
-               <h3 className="lg:text-left text-xl lg:text-3xl lg:mr-20">Med hjälp av 8 miljoner mätvärden hjälper WaitLess dig att hitta dagarna med minst kö på nöjesparker.</h3>
+               <h3 className="lg:text-left text-xl lg:text-3xl lg:mr-20 mx-5">Med hjälp av 8 miljoner mätvärden hjälper WaitLess dig att hitta dagarna med minst kö på nöjesparker.</h3>
                <div className='lg:text-left'>
                   <Link to='/generate'><Button text='Generera ett datum' /></Link>
                </div>
@@ -21,7 +21,14 @@ function Home() {
          </section>
 
          <section className='flex flex-col items-center'>
-            <img src="/waitless_graph.png" alt="" className='w-3/4 mb-30'/>
+            <img src="/waitless_graph.png" alt="" className='w-3/4 mb-30 hidden lg:block'/>
+            {/* <img src="/graph_mobile.png" alt="" className='w-full mb-30 block lg:hidden'/> */}
+            <div className='relative w-full mb-30 lg:hidden'>
+               <div className='overflow-x-scroll'>
+                  <img src="/waitless_graph.png" alt="" className='w-[200%] max-w-none' />
+               </div>
+               <div className="pointer-events-none absolute top-0 right-0 h-full w-40 bg-linear-to-l from-[#FFFCF1] to-transparent" />
+            </div>
             <div className='w-9/10 lg:w-fit'>
                <h1 className='text-4xl lg:text-6xl mb-10 lg:text-left'>Så här funkar det:</h1>
                <ol className='list-decimal list-inside lg:list-outside lg:text-left text-4xl lg:text-6xl'>
