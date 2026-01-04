@@ -7,6 +7,7 @@ function CalendarComponent(props: { chosenDates: [Date, Date] | Date | undefined
 
    return (
       <Calendar
+         className='w-full'
          minDate={new Date()}
          maxDate={maxDate}
          onChange={(date) => props.setChosenDates!(date as [Date, Date])}

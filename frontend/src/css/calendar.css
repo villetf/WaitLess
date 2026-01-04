@@ -1,14 +1,14 @@
 .react-calendar {
    background-color: #F5F7E8;
-   width: 400px;
+   width: 100%;
+   max-width: 100%;
+   border: none;
+   box-sizing: border-box;
 }
 
 .react-calendar__tile {
    background-color: #d0ebc0;
    height: 57px;
-   width: 500px;
-   flex: 0 0 12.285714% !important; 
-   margin: 1% !important;
 }
 
 .react-calendar__navigation__label {
@@ -39,13 +39,10 @@
 }
 
 
-.react-calendar {
-   border: none;
-   width: auto;
-}
+/* Root styles consolidated above */
 
 .react-calendar__month-view {
-   width: 500px;
+   width: 100%;
 }
 
 .react-calendar--selectRange .react-calendar__tile--hover, .react-calendar__tile--active {

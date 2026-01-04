@@ -90,12 +90,12 @@ function MakeTimeChoices(props: {
    return (
       <div className='flex flex-col items-center w-full'>
          <Toaster />
-         {!chosenPark && <div className='text-lg py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i menyn längst upp till vänster.</div>}
+         {!chosenPark && <div className='text-md lg:text-lg mx-3 py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i den övre menyn.</div>}
          <div className='flex flex-col items-center w-full' style={!chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
             <h1 className='mt-20 text-3xl mb-5'>När vill du åka?</h1>
-            <h4>För bästa resultat, välj ett stort tidsspann så att det finns många datum att välja mellan.</h4>
-            <div className='mt-10'>
-               <CalendarComponent setChosenDates={props.setSelectedDates} chosenDates={props.selectedDates}/>
+            <h4 className='mx-5 lg:mx-0'>För bästa resultat, välj ett stort tidsspann så att det finns många datum att välja mellan.</h4>
+            <div className='mt-10 mx-2 lg:mx-0 lg:w-4/10'>
+               <CalendarComponent setChosenDates={props.setSelectedDates} chosenDates={props.selectedDates} />
             </div>
             <h1 className='mt-20 text-3xl mb-5'>Vilka attraktioner är du intresserad av?</h1>
             <h4>Prognosen kommer att beräknas utifrån hur kötiderna på dina valda attraktioner sett ut tidigare.</h4>
