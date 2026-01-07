@@ -18,8 +18,8 @@ function Contact() {
 
             <section className='w-full flex flex-col items-center mb-20'>
                <h2 className='text-2xl lg:text-3xl mb-23 lg:mb-5'>Bakom WaitLess</h2>
-               <div className='bg-[#8DC689] lg:h-70 mx-10 lg:mx-0 min-w-1/2 flex flex-col lg:flex-row items-center rounded-[40px]'>
-                  <img src="./portratt.png" alt="Bild på Vilhelm" className='rounded-full border-15 lg:border-20 border-[#FFFCF1] w-2/3 lg:w-auto lg:h-3/4 -mt-20 lg:mt-0 lg:-ml-20' />
+               <div className='bg-[#8DC689] lg:ml-15 lg:h-70 mx-10 lg:mx-0 min-w-1/2 flex flex-col lg:flex-row items-center rounded-[40px] sm:mx-20 md:mx-50'>
+                  <img src="./portratt.png" alt="Bild på Vilhelm" className='rounded-full border-15 lg:border-20 border-[#FFFCF1] w-2/3 sm:w-1/2 lg:w-auto lg:h-3/4 -mt-20 lg:mt-0 lg:-ml-20' />
                   <div className='text-left'>
                      <div className='mb-5 text-center lg:text-left lg:ml-5 mt-4 lg:mt-5'>
                         <h2 className='text-4xl font-medium'>Vilhelm Fontell</h2>
