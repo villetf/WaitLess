@@ -1,7 +1,6 @@
 .react-calendar {
    background-color: #F5F7E8;
-   width: 100%;
-   max-width: 100%;
+   width: 400px;
    border: none;
    box-sizing: border-box;
 }
@@ -9,6 +8,21 @@
 .react-calendar__tile {
    background-color: #d0ebc0;
    height: 57px;
+   width: 500px;
+   flex: 0 0 12.285714% !important;
+   margin: 1% !important;
+   border-radius: 6px;
+}
+
+@media (width <= 64rem) {
+   .react-calendar__tile {
+      height: 45px;
+      width: 100%;
+   }
+
+   .react-calendar__month-view {
+      max-width: 100%;
+   }
 }
 
 .react-calendar__navigation__label {
@@ -33,6 +47,10 @@
    margin-left: 10px;
 }
 
+.react-calendar {
+   border: none;
+   width: auto;
+}
 
 .react-calendar__month-view__days {
    margin: 10px;
@@ -42,7 +60,7 @@
 /* Root styles consolidated above */
 
 .react-calendar__month-view {
-   width: 100%;
+   width: 500px;
 }
 
 .react-calendar--selectRange .react-calendar__tile--hover, .react-calendar__tile--active {

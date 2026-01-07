@@ -13,9 +13,9 @@ function Home() {
 
             <div className="flex-1 flex justify-center flex-col">
                <h1 className="text-5xl lg:text-7xl lg:text-left mb-10 lg:mr-10">Ha kul istället <br />för att stå i kö.</h1>
-               <h3 className="lg:text-left text-xl lg:text-3xl lg:mr-20 mx-5">Med hjälp av 8 miljoner mätvärden hjälper WaitLess dig att hitta dagarna med minst kö på nöjesparker.</h3>
+               <h3 className="lg:text-left text-xl lg:text-3xl lg:mr-20 mx-5 lg:mx-0">Med hjälp av 8 miljoner mätvärden hjälper WaitLess dig att hitta dagarna med minst kö på nöjesparker.</h3>
                <div className='lg:text-left'>
-                  <Link to='/generate'><Button text='Generera ett datum' /></Link>
+                  <Link to='/generate'><Button text='Generera ett datum' className='mt-7'/></Link>
                </div>
             </div>
          </section>
@@ -36,7 +36,7 @@ function Home() {
                   <li className='mb-5'>Välj attraktioner</li>
                   <li>Få de bästa dagarna</li>
                </ol>
-               <div className='text-left flex flex-col lg:flex-row items-center'>
+               <div className='text-left flex flex-col lg:flex-row items-center mt-7 gap-4'>
                   <Link to='/generate' className='lg:mr-3'><Button text='Testa nu'></Button></Link>
                   <Link to="/about"><Button text='Se hur det funkar' /></Link>
                </div>

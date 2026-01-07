@@ -91,10 +91,10 @@ function MakeTimeChoices(props: {
       <div className='flex flex-col items-center w-full'>
          <Toaster />
          {!chosenPark && <div className='text-md lg:text-lg mx-3 py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i den övre menyn.</div>}
-         <div className='flex flex-col items-center w-full' style={!chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
+         <div className='flex flex-col items-center w-full px-3' style={!chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
             <h1 className='mt-20 text-3xl mb-5'>När vill du åka?</h1>
-            <h4 className='mx-5 lg:mx-0'>För bästa resultat, välj ett stort tidsspann så att det finns många datum att välja mellan.</h4>
-            <div className='mt-10 mx-2 lg:mx-0 lg:w-4/10'>
+            <h4>För bästa resultat, välj ett stort tidsspann så att det finns många datum att välja mellan.</h4>
+            <div className='mt-10 max-w-[95vw]'>
                <CalendarComponent setChosenDates={props.setSelectedDates} chosenDates={props.selectedDates} />
             </div>
             <h1 className='mt-20 text-3xl mb-5'>Vilka attraktioner är du intresserad av?</h1>
@@ -103,8 +103,15 @@ function MakeTimeChoices(props: {
                <label htmlFor="hideChildAttractions" className='mr-2'>Dölj barnattraktioner</label>
                <input type="checkbox" name="hideChildAttractions" id="hideChildAttractions" checked={childAttractionsHidden} onChange={() => setChildAttractionsHidden(!childAttractionsHidden)}/>
             </div>
-            <SelectAttractionsList attractions={attractions.filter((attraction) => !childAttractionsHidden || !attraction.childAttraction)} chosenAttractions={chosenAttractions} setChosenAttractions={setChosenAttractions} />
-            <Button buttonEvent={getForecast} text='Generera prognos' />
+            <SelectAttractionsList
+               attractions={attractions
+                  .filter((attraction) => !childAttractionsHidden || !attraction.childAttraction)
+                  .slice()
+                  .sort((a, b) => a.name.localeCompare(b.name, 'sv', { sensitivity: 'base' }))}
+               chosenAttractions={chosenAttractions}
+               setChosenAttractions={setChosenAttractions}
+            />
+            <Button buttonEvent={getForecast} text='Generera prognos' className='mt-7'/>
          </div>
       </div>
    );
