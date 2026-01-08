@@ -1,7 +1,6 @@
 using backend.Models;
 using backend.Models.DTOs;
 using backend.Models.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers

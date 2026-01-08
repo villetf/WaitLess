@@ -12,7 +12,7 @@ function MakeTimeChoices(props: {
       setValuesSearched: (values: number) => void,
       setForecast: (forecast: Forecast) => void
       selectedDates?: [Date, Date],
-      setSelectedDates?: (dates: [Date, Date]) => void,
+   setSelectedDates?: (dates: [Date, Date] | undefined) => void,
       setError: (error: Error) => void
 }) {
 
@@ -46,6 +46,10 @@ function MakeTimeChoices(props: {
       getAttractions();
    }, [chosenPark, setError]);
 
+   useEffect(() => {
+      setChosenAttractions([]);
+   }, [chosenPark]);
+
    const getForecast = () => {
       let somethingIsWrong = false;
       if (!props.selectedDates) {
@@ -72,6 +76,12 @@ function MakeTimeChoices(props: {
 
       fetchQueueForecast(chosenPark!.id, chosenAttractions, props.selectedDates![0], props.selectedDates![1])
          .then((data: Forecast) => {
+            if (!data.days.length) {
+               props.setCurrentStep(1);
+               props.setSelectedDates?.(undefined);
+               toast.error('Nöjesparken har inte öppet under någon av de här dagarna.', { duration: 8000 });
+               return;
+            }
             const forecastWithDates: Forecast = {
                days: data.days.map((day) => ({
                   ...day,
@@ -90,12 +100,12 @@ function MakeTimeChoices(props: {
    return (
       <div className='flex flex-col items-center w-full'>
          <Toaster />
-         {!chosenPark && <div className='text-lg py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i menyn längst upp till vänster.</div>}
-         <div className='flex flex-col items-center w-full' style={!chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
+         {!chosenPark && <div className='text-md lg:text-lg mx-3 py-5 px-15 border border-red-300 bg-red-200 mt-20 rounded-2xl'>Ingen nöjespark är vald. Välj en park i den övre menyn.</div>}
+         <div className='flex flex-col items-center w-full px-3' style={!chosenPark ? { pointerEvents: 'none', opacity: 0.4 } : {}}>
             <h1 className='mt-20 text-3xl mb-5'>När vill du åka?</h1>
             <h4>För bästa resultat, välj ett stort tidsspann så att det finns många datum att välja mellan.</h4>
-            <div className='mt-10'>
-               <CalendarComponent setChosenDates={props.setSelectedDates} chosenDates={props.selectedDates}/>
+            <div className='mt-10 max-w-[95vw]'>
+               <CalendarComponent setChosenDates={props.setSelectedDates} chosenDates={props.selectedDates} />
             </div>
             <h1 className='mt-20 text-3xl mb-5'>Vilka attraktioner är du intresserad av?</h1>
             <h4>Prognosen kommer att beräknas utifrån hur kötiderna på dina valda attraktioner sett ut tidigare.</h4>
@@ -103,8 +113,15 @@ function MakeTimeChoices(props: {
                <label htmlFor="hideChildAttractions" className='mr-2'>Dölj barnattraktioner</label>
                <input type="checkbox" name="hideChildAttractions" id="hideChildAttractions" checked={childAttractionsHidden} onChange={() => setChildAttractionsHidden(!childAttractionsHidden)}/>
             </div>
-            <SelectAttractionsList attractions={attractions.filter((attraction) => !childAttractionsHidden || !attraction.childAttraction)} chosenAttractions={chosenAttractions} setChosenAttractions={setChosenAttractions} />
-            <Button buttonEvent={getForecast} text='Generera prognos' />
+            <SelectAttractionsList
+               attractions={attractions
+                  .filter((attraction) => !childAttractionsHidden || !attraction.childAttraction)
+                  .slice()
+                  .sort((a, b) => a.name.localeCompare(b.name, 'sv', { sensitivity: 'base' }))}
+               chosenAttractions={chosenAttractions}
+               setChosenAttractions={setChosenAttractions}
+            />
+            <Button buttonEvent={getForecast} text='Generera prognos' className='mt-7'/>
          </div>
       </div>
    );

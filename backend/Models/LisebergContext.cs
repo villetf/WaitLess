@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using backend.Models.Interfaces;
+﻿using backend.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Models;

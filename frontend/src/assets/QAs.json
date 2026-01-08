@@ -1,0 +1,46 @@
+[
+   {
+      "question": "Vad är WaitLess för något?",
+      "answer": "WaitLess är ett verktyg som hjälper dig att hitta dagarna med minst kö på nöjesparker. Det gör vi genom att generera en prognos baserat på hur köer har sett ut tidigare år. Vi räknar helt enkelt ihop all köstatistik för de dagar och attraktioner du valt, och sedan får du tillbaka vilket datum du borde åka."
+   },
+   {
+      "question": "Var kommer statistiken ifrån?",
+      "answer": "Kötiderna är samma siffror som du ser när du laddar ner nöjesparkernas appar och kollar hur långa köerna är på attraktioer. Det som skiljer WaitLess från apparna är att vi sparar datan för att kunna ta fram köprognoser åt dig. Vi sparar mätvärden från alla attraktioner en gång per minut, och tack vare det har vi tillgång till väldigt detaljerad statistik."
+   },
+   {
+      "question": "Hur vet jag att köprognosen stämmer?",
+      "answer": "Det går aldrig att ge en helt säker prognos eftersom det finns så många faktorer som påverkar hur mycket kö det är på en nöjespark. Däremot baseras våra prognoser på konkret data, till skillnad från när man väljer ett datum själv och bara kan gissa hur mycket kö det kommer vara. Tänk såhär: om du vill åka till stranden, kommer du då bara välja en dag och hoppas att det inte regnar, eller kommer du kolla på väderprognoserna?"
+   },
+   {
+      "question": "Kommer det komma in fler nöjesparker i framtiden?",
+      "answer": "Ja, förhoppningsvis. Ett krav för att vi ska kunna samla in data är att nöjesparkerna själva mäter kötider och presenterar dem i en app eller på en hemsida, något som förhoppningsvis fler nordiska parker kommer börja med. Håll utkik!"
+   },
+   {
+      "question": "Är det gratis att använda WaitLess?",
+      "answer": "Ja! Du får använda WaitLesss hur mycket du vill, helt gratis."
+   },
+   {
+      "question": "Behöver man registrera sig för att använda WaitLess?",
+      "answer": "Nej, det är bara att köra!"
+   },
+   {
+      "question": "Samlar ni in någon data om mig när jag använder WaitLess?",
+      "answer": "Nej! Ingen data samlas in om dig."
+   },
+   {
+      "question": "Hur många datum behöver jag välja för att generera en prognos?",
+      "answer": "Det finns ingen undre gräns, men ju fler datum, desto större chans har du att hitta ett datum med korta kötider. Därför rekommenderar vi allra minst 7 dagar."
+   },
+   {
+      "question": "Hänger WaitLess ihop med någon nöjespark?",
+      "answer": "Nej, WaitLess är skapat av två berg-och-dalbaneentusiaster utan kopplingar till några nöjesparker."
+   },
+   {
+      "question": "Finns WaitLess som app?",
+      "answer": "Nej, men den här webbsidan fungerar precis lika bra på mobilen som en app hade gjort. Gå till waitless.se på mobilen och testa själv!"
+   },
+   {
+      "question": "Jag har hittat ett fel på WaitLess, vad gör jag?",
+      "answer": "Vi är jättetacksamma om du vill hjälpa oss att fixa det. Skriv ett mail till <a href=\"mailto:ville@fontell.se\" class=\"underline text-blue-500\">ville@fontell.se</a> där du beskriver felet och vad du gjorde för att orsaka det. Vi jobbar på att få in ett formulär för att göra det enklare. Stort tack för hjälpen!"
+   }
+]

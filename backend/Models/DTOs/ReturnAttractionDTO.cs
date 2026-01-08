@@ -1,5 +1,3 @@
-using System;
-
 namespace backend.Models.DTOs;
 
 public class ReturnAttractionDTO

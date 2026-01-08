@@ -1,8 +1,6 @@
-using System;
 using backend.Models.DTOs;
 using backend.Models.Entities;
 using backend.Models.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace backend.Models.Repositories;
 

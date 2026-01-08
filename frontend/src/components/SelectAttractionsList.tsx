@@ -19,6 +19,12 @@ function SelectAttractionsList(props: { attractions: Attraction[], chosenAttract
          value={props.chosenAttractions}
          closeMenuOnSelect={false}
          placeholder='Välj attraktioner...'
+         styles={{
+            menuList: (baseStyles) => ({
+               ...baseStyles,
+               maxHeight: '400px'
+            }),
+         }}
       />
    );
 }
