@@ -46,6 +46,10 @@ function MakeTimeChoices(props: {
       getAttractions();
    }, [chosenPark, setError]);
 
+   useEffect(() => {
+      setChosenAttractions([]);
+   }, [chosenPark]);
+
    const getForecast = () => {
       let somethingIsWrong = false;
       if (!props.selectedDates) {
