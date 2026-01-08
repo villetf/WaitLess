@@ -1,4 +1,3 @@
-using System;
 using backend.Models.Entities;
 
 namespace backend.Models.Interfaces;

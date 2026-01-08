@@ -22,7 +22,6 @@ function Home() {
 
          <section className='flex flex-col items-center'>
             <img src="/waitless_graph.png" alt="" className='w-3/4 mb-30 hidden lg:block'/>
-            {/* <img src="/graph_mobile.png" alt="" className='w-full mb-30 block lg:hidden'/> */}
             <div className='relative w-full mb-30 lg:hidden'>
                <div className='overflow-x-scroll'>
                   <img src="/waitless_graph.png" alt="" className='w-[200%] max-w-none' />
