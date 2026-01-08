@@ -12,7 +12,7 @@ function MakeTimeChoices(props: {
       setValuesSearched: (values: number) => void,
       setForecast: (forecast: Forecast) => void
       selectedDates?: [Date, Date],
-      setSelectedDates?: (dates: [Date, Date]) => void,
+   setSelectedDates?: (dates: [Date, Date] | undefined) => void,
       setError: (error: Error) => void
 }) {
 
@@ -76,6 +76,12 @@ function MakeTimeChoices(props: {
 
       fetchQueueForecast(chosenPark!.id, chosenAttractions, props.selectedDates![0], props.selectedDates![1])
          .then((data: Forecast) => {
+            if (!data.days.length) {
+               props.setCurrentStep(1);
+               props.setSelectedDates?.(undefined);
+               toast.error('Nöjesparken har inte öppet under någon av de här dagarna.', { duration: 8000 });
+               return;
+            }
             const forecastWithDates: Forecast = {
                days: data.days.map((day) => ({
                   ...day,
