@@ -18,6 +18,7 @@ function SelectAttractionsList(props: { attractions: Attraction[], chosenAttract
          }
          value={props.chosenAttractions}
          closeMenuOnSelect={false}
+         blurInputOnSelect={false}
          placeholder='Välj attraktioner...'
          styles={{
             menuList: (baseStyles) => ({
